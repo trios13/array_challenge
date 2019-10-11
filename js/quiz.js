@@ -1,6 +1,8 @@
 
 function print(message) {
-  document.write(message);
+//  document.write(message);
+  var outputDiv = document.getElementById('output');
+  outputDiv.innerHTML = message;
 }
 
 var correct = 0;
@@ -16,15 +18,16 @@ var wrongQuestions = [];
 
 for(var i = 0; i<questions.length; i+=1)
 { 
-  var answer = prompt(questions[i][0]);
+  var question = questions[i][0];
+  var answer = prompt(question);
   if(parseInt(answer) === questions[i][1])
   {
     correct +=1;
-    correctQuestions.push(questions[i][0]);
+    correctQuestions.push(question);
   }
   else
   {
-     wrongQuestions.push(questions[i][0]);                       
+     wrongQuestions.push(question);                     
   }
     
 }
@@ -32,16 +35,16 @@ for(var i = 0; i<questions.length; i+=1)
   message = 'You answered ' + correct + ' answer(s) correctly.<br><br>';
   if(correctQuestions.length > 0)
   {
-    message += '<bold>You got these questions correct:</bold><br><ol>'
+    message += '<h2>You got these questions correct:</h2><ol>'
     for(var i = 0; i<correctQuestions.length;i+=1)
     {
       message += '<li>' + correctQuestions[i] + '</li>'
     }
-    message += '</ol><br>'
+    message += '</ol>'
   }
   if(wrongQuestions.length >0)
   {
-    message += '<bold>You got these questions wrong:</bold><br><ol>'
+    message += '<h2>You got these questions wrong:</h2><ol>'
     for(var i = 0; i<wrongQuestions.length;i+=1)
     {
       message += '<li>' + wrongQuestions[i] + '</li>'
