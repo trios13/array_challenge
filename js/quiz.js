@@ -6,15 +6,15 @@ function print(message) {
 var correct = 0;
 var message = '';
 var questions = [
-  ['What is 5*5?', '25'],
-  ['What is 5*0?', '0' ],
-  ['What is 10*10?', '100']
+  ['What is 5*5?', 25],
+  ['What is 5*0?', 0 ],
+  ['What is 10*10?', 100]
 ];
 
 for(var i = 0; i<questions.length; i+=1)
 { 
   var answer = prompt(questions[i][0]);
-  if(answer === questions[i][1])
+  if(parseInt(answer) === questions[i][1])
   {
      correct +=1;
   }
