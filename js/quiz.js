@@ -5,6 +5,17 @@ function print(message) {
   outputDiv.innerHTML = message;
 }
 
+function buildList(arr)
+{
+  var listHTML = '<ol>';
+  for(var i = 0; i < arr.length; i +=1)
+  {
+     listHTML += '<li>' + arr[i] + '</li>';
+  }
+  listHTML += '</ol>';
+  return listHTML;
+}
+
 var correct = 0;
 var message = '';
 var questions = [
@@ -30,26 +41,33 @@ for(var i = 0; i<questions.length; i+=1)
      wrongQuestions.push(question);                     
   }
     
-}
+} 
+message = 'You answered ' + correct + ' answer(s) correctly';
+message += '<h2>You got these questions correct:</h2>';
+message += buildList(correctQuestions);
+message += '<h2>You got these questions wrong:</h2>';
+message += buildList(wrongQuestions);
 
-  message = 'You answered ' + correct + ' answer(s) correctly.<br><br>';
-  if(correctQuestions.length > 0)
-  {
-    message += '<h2>You got these questions correct:</h2><ol>'
-    for(var i = 0; i<correctQuestions.length;i+=1)
-    {
-      message += '<li>' + correctQuestions[i] + '</li>'
-    }
-    message += '</ol>'
-  }
-  if(wrongQuestions.length >0)
-  {
-    message += '<h2>You got these questions wrong:</h2><ol>'
-    for(var i = 0; i<wrongQuestions.length;i+=1)
-    {
-      message += '<li>' + wrongQuestions[i] + '</li>'
-    }
-    message += '</ol>'
-  }
+print(message);
+//the following is how I did it orriginally above is how //the teacher of the course did it
+//  message = 'You answered ' + correct + ' answer(s) correctly.<br><br>';
+//  if(correctQuestions.length > 0)
+//  {
+//    message += '<h2>You got these questions correct:</h2><ol>'
+//    for(var i = 0; i<correctQuestions.length;i+=1)
+//    {
+//      message += '<li>' + correctQuestions[i] + '</li>'
+//    }
+//    message += '</ol>'
+//  }
+//  if(wrongQuestions.length >0)
+//  {
+//    message += '<h2>You got these questions wrong:</h2><ol>'
+//    for(var i = 0; i<wrongQuestions.length;i+=1)
+//    {
+//      message += '<li>' + wrongQuestions[i] + '</li>'
+//    }
+//    message += '</ol>'
+//  }
 
 print(message);
